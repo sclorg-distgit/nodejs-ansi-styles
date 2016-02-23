@@ -7,7 +7,7 @@
 
 Name:       %{?scl_prefix}nodejs-ansi-styles
 Version:    2.1.0
-Release:    2%{?dist}
+Release:    4%{?dist}
 Summary:    ANSI escape codes for colorizing strings in the terminal
 License:    MIT
 Group:      System Environment/Libraries
@@ -22,7 +22,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 
-BuildRequires:  nodejs010-runtime
+BuildRequires:  rh-nodejs4-runtime
 
 %if 0%{?enable_tests}
 BuildRequires:  %{?scl_prefix}npm(mocha)
@@ -58,6 +58,12 @@ cp -pr package.json index.js \
 %{nodejs_sitelib}/ansi-styles
 
 %changelog
+* Sun Feb 14 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 2.1.0-4
+- Use macro in -runtime dependency
+
+* Sun Feb 14 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 2.1.0-3
+- rebuilt
+
 * Thu Jan 07 2016 Tomas Hrcka <thrcka@redhat.com> - 2.1.0-2
 - Enable scl macros
 
